@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "Nike Boot",
+    "Description": "Nike shoes",
+    "Price": 200,
+    "PictureUrl": "images/products/sb-nike.png",
+    "ProductTypeId": 1,
+    "ProductBrandId": 1
+  },
+ 
+]
