@@ -44,7 +44,15 @@ namespace API
             services.AddApplicationServices();
 
             services.AddDbContext<StoreContext>(x => 
-                x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));            
+                x.UseSqlServer(_configuration.GetConnectionString("DefaultConnection")));    
+
+            services.AddCors(opt => 
+            {
+                opt.AddPolicy("CorsPolicy", policy =>
+                {
+                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                });
+            });
             
         }
 
@@ -67,6 +75,8 @@ namespace API
             app.UseRouting();
 
             app.UseStaticFiles();
+
+            app.UseCors("CorsPolicy");
 
             app.UseAuthorization();      
 
